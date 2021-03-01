@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Voting">
+  <database-model serializer="dbm" dbms="HSQLDB" family-id="HSQLDB" format-version="4.19">
+    <root id="1">
+      <ServerVersion>2.4.0</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="PUBLIC">
+      <Current>1</Current>
+    </database>
+    <schema id="3" parent="2" name="INFORMATION_SCHEMA"/>
+    <schema id="4" parent="2" name="PUBLIC">
+      <Current>1</Current>
+    </schema>
+    <schema id="5" parent="2" name="SYSTEM_LOBS"/>
+    <table id="6" parent="4" name="DISH"/>
+    <table id="7" parent="4" name="RESTAURANT"/>
+    <table id="8" parent="4" name="USER"/>
+    <table id="9" parent="4" name="USER_ROLE"/>
+    <table id="10" parent="4" name="VOTE"/>
+    <column id="11" parent="6" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="12" parent="6" name="DATE">
+      <Position>2</Position>
+      <DataType>DATE|91s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="13" parent="6" name="NAME">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="14" parent="6" name="PRICE">
+      <Position>4</Position>
+      <DataType>DOUBLE|8s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="15" parent="6" name="RESTAURANT_ID">
+      <Position>5</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="16" parent="6" name="SYS_IDX_SYS_PK_10191_10197">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="17" parent="6" name="DISH_UNIQUE_RESTAURANT_DATETIME_NAME_IDX">
+      <ColNames>RESTAURANT_ID
+DATE
+NAME</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="18" parent="6" name="SYS_IDX_SYS_FK_10196_10202">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RESTAURANT_ID</ColNames>
+    </index>
+    <key id="19" parent="6" name="SYS_PK_10191">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="20" parent="6" name="DISH_UNIQUE_RESTAURANT_DATETIME_NAME_IDX">
+      <ColNames>RESTAURANT_ID
+DATE
+NAME</ColNames>
+    </key>
+    <foreign-key id="21" parent="6" name="SYS_FK_10196">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RESTAURANT_ID</ColNames>
+      <RefTableName>RESTAURANT</RefTableName>
+      <RefKeyName>SYS_PK_10187</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="22" parent="7" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="23" parent="7" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="24" parent="7" name="SYS_IDX_SYS_PK_10187_10189">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="25" parent="7" name="RESTAURANTS_UNIQUE_NAME_IDX">
+      <ColNames>NAME</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="26" parent="7" name="SYS_PK_10187">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="27" parent="7" name="RESTAURANTS_UNIQUE_NAME_IDX">
+      <ColNames>NAME</ColNames>
+    </key>
+    <column id="28" parent="8" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="29" parent="8" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="8" name="EMAIL">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="8" name="PASSWORD">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="8" name="REGISTERED">
+      <Position>5</Position>
+      <DataType>TIMESTAMP|93s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>LOCALTIMESTAMP</DefaultExpression>
+    </column>
+    <column id="33" parent="8" name="ENABLED">
+      <Position>6</Position>
+      <DataType>BOOLEAN|16s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>TRUE</DefaultExpression>
+    </column>
+    <index id="34" parent="8" name="SYS_IDX_SYS_PK_10168_10174">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="35" parent="8" name="USERS_UNIQUE_EMAIL_IDX">
+      <ColNames>EMAIL</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="36" parent="8" name="SYS_PK_10168">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="37" parent="8" name="USERS_UNIQUE_EMAIL_IDX">
+      <ColNames>EMAIL</ColNames>
+    </key>
+    <column id="38" parent="9" name="USER_ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="9" name="ROLE">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <index id="40" parent="9" name="SYS_IDX_USER_ROLES_IDX_10184">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID
+ROLE</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="41" parent="9" name="SYS_IDX_SYS_FK_10181_10185">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID</ColNames>
+    </index>
+    <key id="42" parent="9" name="SYS_IDX_USER_ROLES_IDX_10184">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID
+ROLE</ColNames>
+    </key>
+    <foreign-key id="43" parent="9" name="SYS_FK_10181">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID</ColNames>
+      <RefTableName>USER</RefTableName>
+      <RefKeyName>SYS_PK_10168</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="44" parent="10" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="45" parent="10" name="DATE">
+      <Position>2</Position>
+      <DataType>DATE|91s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="10" name="USER_ID">
+      <Position>3</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="10" name="RESTAURANT_ID">
+      <Position>4</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="48" parent="10" name="SYS_IDX_SYS_PK_10204_10210">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="49" parent="10" name="VOTE_UNIQUE_USER_DATE_IDX">
+      <ColNames>USER_ID
+DATE</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="50" parent="10" name="SYS_IDX_SYS_FK_10208_10214">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID</ColNames>
+    </index>
+    <index id="51" parent="10" name="SYS_IDX_SYS_FK_10209_10216">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RESTAURANT_ID</ColNames>
+    </index>
+    <key id="52" parent="10" name="SYS_PK_10204">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="53" parent="10" name="VOTE_UNIQUE_USER_DATE_IDX">
+      <ColNames>USER_ID
+DATE</ColNames>
+    </key>
+    <foreign-key id="54" parent="10" name="SYS_FK_10208">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID</ColNames>
+      <RefTableName>USER</RefTableName>
+      <RefKeyName>SYS_PK_10168</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="55" parent="10" name="SYS_FK_10209">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RESTAURANT_ID</ColNames>
+      <RefTableName>RESTAURANT</RefTableName>
+      <RefKeyName>SYS_PK_10187</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+  </database-model>
+</dataSource>
